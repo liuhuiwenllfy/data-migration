@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -64,6 +65,7 @@ public class DataMigrationServiceImpl implements DataMigrationService {
         MigrationDataRecord record = new MigrationDataRecord();
         record.setIsSync(true);
         record.setType(type);
+        record.setCreateTime(new Date());
         scMigrationDataRecordService.save(record);
     }
 }
