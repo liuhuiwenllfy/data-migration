@@ -13,7 +13,7 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum DataMigrationType {
+public enum DataMigrationTypeEnum {
     USER_INFO(1, "用户信息", SpringUtil.getBean(UserInfoImportProcess.class));
 
     private final int code;

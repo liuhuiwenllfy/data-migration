@@ -1,7 +1,7 @@
 package cn.liulingfengyu.datamigration.service.impl;
 
 import cn.liulingfengyu.datamigration.entity.MigrationDataRecord;
-import cn.liulingfengyu.datamigration.enums.DataMigrationType;
+import cn.liulingfengyu.datamigration.enums.DataMigrationTypeEnum;
 import cn.liulingfengyu.datamigration.service.DataMigrationService;
 import cn.liulingfengyu.datamigration.service.IMigrationDataRecordService;
 import cn.liulingfengyu.datamigration.template.DataImportTemplate;
@@ -30,10 +30,10 @@ public class DataMigrationServiceImpl implements DataMigrationService {
     @Override
     @Async
     public void migration() {
-        DataMigrationType[] values = DataMigrationType.values();
+        DataMigrationTypeEnum[] values = DataMigrationTypeEnum.values();
         ExecutorService executor = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         List<Future<?>> futures = new ArrayList<>();
-        for (DataMigrationType dataMigrationType : values) {
+        for (DataMigrationTypeEnum dataMigrationType : values) {
             Future<?> future = executor.submit(() -> {
                 Long count = scMigrationDataRecordService
                         .lambdaQuery()
