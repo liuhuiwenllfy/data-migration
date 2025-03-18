@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/data-migration?useUnicode=true&useSSL=false&characterEncoding=utf8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+          username: root
+          password: 1q@w3e4r
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            connection-timeout: 30000
+            idle-timeout: 600000
+            max-lifetime: 1800000
+            maximum-pool-size: 15
+            minimum-idle: 5
+        output:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://127.0.0.1:3306/data-migration?useUnicode=true&useSSL=false&characterEncoding=utf8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+          username: root
+          password: 1q@w3e4r
+          type: com.zaxxer.hikari.HikariDataSource
+          hikari:
+            connection-timeout: 30000
+            idle-timeout: 600000
+            max-lifetime: 1800000
+            maximum-pool-size: 15
+            minimum-idle: 5
+logging:
+  level:
+    cn.liulingfengyu.datamigration: debug
+  file:
+    path: log
